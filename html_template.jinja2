@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Incoming Request</title>
+<style>
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<p>{{ isodate }} http-sink running on {{ hostname }}<p>
+<h2>{{ method }} {{ url }}<h2>
+<h3>from {{ requester }}</h3>
+<h2>Headers</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Value</th>
+    </tr>
+{% for header in headers %}
+    <tr>
+        <td>{{ header }}</td>
+        <td>{{ headers[header] }}</td>
+    </tr>
+{% endfor %}
+</table>
+<h2>Body</h2>
+{{ body }}
+</body>
+</html>
