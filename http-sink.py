@@ -30,7 +30,7 @@ def get_request_html(request):
 
 @app.exception(NotFound)
 async def sink(request, exception):
-    return html(get_request_html(request))
+    return html(get_request_html(request), headers={'Access-Control-Allow-Origin': '"*"'})
 
 
 if __name__ == '__main__':
